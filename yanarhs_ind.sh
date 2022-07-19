@@ -19,5 +19,3 @@ echo "#### create ind ####"
 #qsub under "hmiwa"
 /opt/pkg/r/3.5.2/bin/Rscript ~/hmiwa/analysis_yanarhsf3/yanaind.R;echo "R done `date`"
 echo "finish: `date`"
-
-

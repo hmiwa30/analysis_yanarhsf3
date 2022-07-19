@@ -1,0 +1,21 @@
+parameter file: /home/hmiwa-spc/hmiwa/analysis_yanarhsf3/parqpfstat2_yanarhsjomon.txt
+**warning: dubious parameter, please check the parameter name ***
+### THE INPUT PARAMETERS
+##PARAMETER NAME: VALUE
+DIR: yanarhs_jomonf3
+S1: yanarhs_jomonf3/yana_j_f3_analysis
+S1X: yanarhs_jomonf3/yana_j_f3_analysis
+indivname: yanarhs_jomonf3/yana_j_f3_analysis2.ind
+snpname: yanarhs_jomonf3/yana_j_f3_analysis.snp
+genotypename: yanarhs_jomonf3/yana_j_f3_analysis.geno
+poplistname: lista2_yanajomon.txt
+fstatsoutname: yanarhs_jomonf3/yana_j_f3_analysis_fstatsa2.txt 
+allsnps: YES 
+inbreed: NO 
+scale: NO 
+*** strongly advuse to specify allsnp: and inbreed: in the paramter file.
+## qpfstats version: 540
+inbreed set NO
+allsnps set
+yanarhs_jomonf3/yana_j_f3_analysis.snp: genetic distance set from physical distance
+bad open yanarhs_jomonf3/yana_j_f3_analysis2.ind

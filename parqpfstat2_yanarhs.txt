@@ -1,0 +1,17 @@
+         DIR:                 yanarhsf3
+          S1:                     yanarhsf3/yanarhs_f3_analysis
+         S1X:                     yanarhsf3/yanarhs_f3_analysis
+   indivname:                yanarhsf3/yanarhs_f3_analysis2.ind
+     snpname:                 yanarhsf3/yanarhs_f3_analysis.snp
+genotypename:                yanarhsf3/yanarhs_f3_analysis.geno
+ poplistname:                      lista2_yana.txt
+## must be present.  ne popuation / line.  First population is base
+ fstatsoutname:                    yanarhsf3/yanarhs_f3_analysis_fstatsa2.txt 
+## first line is header.  Must be retained
+ allsnps:                          YES 
+## default NO  -- dangerous bend
+ inbreed:                           NO 
+## default (match allsnps:)  
+ scale:                             NO 
+## default YES -- when fstats are scaled to "match" fst in least squares sense 
+*** strongly advuse to specify allsnp: and inbreed: in the paramter file.  

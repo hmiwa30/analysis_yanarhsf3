@@ -1,4 +1,5 @@
 #!/mnt/hdd/hmiwa
+echo "start:`date`"
 cat yana_j_f3_analysis_altai.geno > yana_j_f3_analysis2_altai.geno;echo "yana_j altai"
 cat yana_j_f3_analysis_chagyrskaya.geno > yana_j_f3_analysis2_chagyrskaya.geno;echo "yana_j chagyrskaya"
 cat yana_j_f3_analysis_vindija.geno > yana_j_f3_analysis2_vindija.geno;echo "yana_j vindija"
@@ -15,3 +16,4 @@ cat yanarhs_f3_analysis_altai.snp > yanarhs_f3_analysis2_altai.snp;echo "yanarhs
 cat yanarhs_f3_analysis_chagyrskaya.snp > yanarhs_f3_analysis2_chagyrskaya.snp;echo "yanarhs chagyrskaya"
 cat yanarhs_f3_analysis_vindija.snp > yanarhs_f3_analysis2_vindija.snp;echo "yanarhs vindija"
 cat yanarhs_f3_analysis_denisova.snp > yanarhs_f3_analysis2_denisova.snp;echo "yanarhs denisova"
+echo "finish:`date`"

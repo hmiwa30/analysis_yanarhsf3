@@ -1,0 +1,631 @@
+R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from G:/hmiwa/m_20211215/07_yana_saami3/git/analysis_yanarhsf3/localRfstats/.RData]
+
+> gc(reset=T)
+          used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  570993 30.5    1288360 68.9   570993 30.5
+Vcells 1498625 11.5    8388608 64.0  1498625 11.5
+> gc(reset=T)
+          used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  570997 30.5    1288360 68.9   570997 30.5
+Vcells 1498652 11.5    8388608 64.0  1498652 11.5
+> .libPaths()
+[1] "C:/Users/himar/OneDrive/ドキュメント/R/win-library/3.6" "C:/Program Files/R/R-3.6.3/library"                    
+> .libPaths("C:\\Users\\himar\\Documents\\R")
+> 
+> #install.packages("shiny")
+> #install.packages("shinythemes")
+> #install.packages("shinyjs")
+> #install.packages("shinyBS")
+> #install.packages("shinyFiles")
+> #install.packages("shinyalert")
+> #install.packages("shinyWidgets")
+> #install.packages("shinydashboard")
+> #install.packages("DT")
+> #install.packages("jquerylib")
+> library(admixtools)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  923570 49.4    1839190 98.3   923570 49.4
+Vcells 1998832 15.3    8388608 64.0  1998832 15.3
+> gc(reset=T)
+          used (Mb) gc trigger (Mb) max used (Mb)
+Ncells  923522 49.4    1839190 98.3   923522 49.4
+Vcells 1998763 15.3    8388608 64.0  1998763 15.3
+> 
+> sdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources"
+> rdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results"
+> ldir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3"
+> 
+> #altai#####
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis_altai",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis_altai"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis_altai",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_altai"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis_altai.geno has 2552 samples and 47942 SNPs
+i Calculating allele frequencies from 2552 samples in 74 populations
+! 47942 SNPs remain after filtering. 47942 are polymorphic.
+i Allele frequency matrix for 47942 SNPs and 74 populations is 33 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 4825 MB RAM without splitting
+i Computing without splitting since 4825 < 8000 (maxmem)...
+Error: cannot allocate vector of size 1001.5 Mb
+In addition: Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1050290 56.1    1839190   98.3  1050290 56.1
+Vcells 2297733 17.6  971070252 7408.7  2297733 17.6
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1050297 56.1    1839190   98.3  1050297 56.1
+Vcells 2297762 17.6  776856202 5927.0  2297762 17.6
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+Error in f2_from_precomp(my_f2_dir) : 
+  Directory G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis_altai doesn't exist!
+> dim(f2_blocks)
+Error: object 'f2_blocks' not found
+> (lista <- read.table(sprintf("%s\\lista_yanajomon.txt",ldir))$V1)
+ [1] YRI                ASW                ACB                BEB                GBR                CDX                CLM               
+ [8] ESN                FIN                GWD                GIH                CHB                CHS                IBS               
+[15] ITU                JPT                KHV                LWK                MSL                MXL                PEL               
+[22] PUR                PJL                STU                TSI                CEU                Jomon              IK002.maf001_Jomon
+[29] JpFu1              JpKo13             JpHi01             JpKo2              JpIw31             JpOd181            JpIw32            
+[36] JpOd274            JpIw33             JpOd282            JpKa6904           JpOd6              DA234              DA236             
+[43] DA237_E1_L1        DA238              Kolyma_River       M0831              M9984              NEO229             NEO230            
+[50] NEO231             NEO232             NEO233             NEO234             NEO235             NEO236             NEO237            
+[57] NEO238             NEO239             NEO240             NEO241             NEO242             NEO243             NEO246            
+[64] NEO247             NEO248             NEO249             NEO250             NEO251             NEO253             NEO298            
+[71] NEO299             Yana_old           Yana_old2          Yana_Young        
+74 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DA234 DA236 DA237_E1_L1 DA238 ESN FIN GBR GIH GWD IBS IK002.maf001_Jomon ITU Jomon ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"                "ACB"                "BEB"                "GBR"                "CDX"                "CLM"               
+ [7] "ESN"                "FIN"                "GWD"                "GIH"                "CHB"                "CHS"               
+[13] "IBS"                "ITU"                "JPT"                "KHV"                "LWK"                "MSL"               
+[19] "MXL"                "PEL"                "PUR"                "PJL"                "STU"                "TSI"               
+[25] "CEU"                "Jomon"              "IK002.maf001_Jomon" "JpFu1"              "JpKo13"             "JpHi01"            
+[31] "JpKo2"              "JpIw31"             "JpOd181"            "JpIw32"             "JpOd274"            "JpIw33"            
+[37] "JpOd282"            "JpKa6904"           "JpOd6"              "DA234"              "DA236"              "DA237_E1_L1"       
+[43] "DA238"              "Kolyma_River"       "M0831"              "M9984"              "NEO229"             "NEO230"            
+[49] "NEO231"             "NEO232"             "NEO233"             "NEO234"             "NEO235"             "NEO236"            
+[55] "NEO237"             "NEO238"             "NEO239"             "NEO240"             "NEO241"             "NEO242"            
+[61] "NEO243"             "NEO246"             "NEO247"             "NEO248"             "NEO249"             "NEO250"            
+[67] "NEO251"             "NEO253"             "NEO298"             "NEO299"             "Yana_old"           "Yana_old2"         
+[73] "Yana_Young"        
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+Error in is_ancestrymap_prefix(input) : object 'f2_blocks' not found
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis_altai.f3_FIN.txt",rdir),quote=F,row.names=F)
+Error in is.data.frame(x) : object 'dat.f3' not found
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1057193 56.5    1839190   98.3  1057193 56.5
+Vcells 2311941 17.7  621484962 4741.6  2311941 17.7
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1057197 56.5    1839190   98.3  1057197 56.5
+Vcells 2311965 17.7  497187970 3793.3  2311965 17.7
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis2_altai",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis2_altai"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis2_altai",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis2_altai"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis2_altai.geno has 2552 samples and 47942 SNPs
+i Calculating allele frequencies from 2552 samples in 40 populations
+! 47942 SNPs remain after filtering. 47942 are polymorphic.
+i Allele frequency matrix for 47942 SNPs and 40 populations is 20 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 1565 MB RAM without splitting
+i Computing without splitting since 1565 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis2_altai/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1105425 59.1    1839190   98.3  1105425 59.1
+Vcells 2815501 21.5  244418792 1864.8  2815501 21.5
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1057515 56.5    1839190   98.3  1057515 56.5
+Vcells 2312773 17.7  195535034 1491.9  2312773 17.7
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 40 populations...
+i Reading f2 data for pair 820 out of 820...
+Warning message:
+In f2_from_precomp(my_f2_dir) :
+  Some f2-statistic estimates are negative across blocks. This is probably caused by too many missing or rare SNPs in populations with low sample size, which makes the f2 bias correction unreliable. Consider running 'f2_from_precomp' with 'afprod = TRUE'.
+> dim(f2_blocks)
+[1]  40  40 867
+> (lista <- read.table(sprintf("%s\\lista2_yanajomon.txt",ldir))$V1)
+ [1] YRI           ASW           ACB           BEB           GBR           CDX           CLM           ESN           FIN          
+[10] GWD           GIH           CHB           CHS           IBS           ITU           JPT           KHV           LWK          
+[19] MSL           MXL           PEL           PUR           PJL           STU           TSI           CEU           Jomon        
+[28] Kofun         Saami_IA      Finnish_IA    Kolyma_M      Magadan_BA    UstBelaya_N   UstBelaya_EBA Uelen_IA      DevilsCave_N 
+[37] Ekven_IA      UstBelaya_MED Yana_UP       Yana_MED     
+40 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DevilsCave_N Ekven_IA ESN FIN Finnish_IA GBR GIH GWD IBS ITU Jomon JPT KHV Kofun ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"           "ACB"           "BEB"           "GBR"           "CDX"           "CLM"           "ESN"           "FIN"          
+ [9] "GWD"           "GIH"           "CHB"           "CHS"           "IBS"           "ITU"           "JPT"           "KHV"          
+[17] "LWK"           "MSL"           "MXL"           "PEL"           "PUR"           "PJL"           "STU"           "TSI"          
+[25] "CEU"           "Jomon"         "Kofun"         "Saami_IA"      "Finnish_IA"    "Kolyma_M"      "Magadan_BA"    "UstBelaya_N"  
+[33] "UstBelaya_EBA" "Uelen_IA"      "DevilsCave_N"  "Ekven_IA"      "UstBelaya_MED" "Yana_UP"       "Yana_MED"     
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis2_altai.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1084093 57.9    1839190   98.3  1084093 57.9
+Vcells 3759646 28.7  156428028 1193.5  3759646 28.7
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083740 57.9    1839190  98.3  1083740 57.9
+Vcells 3759075 28.7  125142423 954.8  3759075 28.7
+> 
+> #chagyrskaya#####
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis_chagyrskaya",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis_chagyrskaya"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis_chagyrskaya",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_chagyrskaya"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis_chagyrskaya.geno has 2552 samples and 37504 SNPs
+i Calculating allele frequencies from 2552 samples in 74 populations
+! 37504 SNPs remain after filtering. 37504 are polymorphic.
+i Allele frequency matrix for 37504 SNPs and 74 populations is 26 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 3774 MB RAM without splitting
+i Computing without splitting since 3774 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis_chagyrskaya/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1121238 59.9    1839190   98.3  1121238 59.9
+Vcells 4152252 31.7  682013363 5203.4  4152252 31.7
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083742 57.9    1839190   98.3  1083742 57.9
+Vcells 3759073 28.7  545610691 4162.7  3759073 28.7
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 74 populations...
+i Reading f2 data for pair 2775 out of 2775...
+Warning message:
+In f2_from_precomp(my_f2_dir) :
+  Some f2-statistic estimates are negative across blocks. This is probably caused by too many missing or rare SNPs in populations with low sample size, which makes the f2 bias correction unreliable. Consider running 'f2_from_precomp' with 'afprod = TRUE'.
+> dim(f2_blocks)
+[1]  74  74 817
+> (lista <- read.table(sprintf("%s\\lista_yanajomon.txt",ldir))$V1)
+ [1] YRI                ASW                ACB                BEB                GBR                CDX                CLM               
+ [8] ESN                FIN                GWD                GIH                CHB                CHS                IBS               
+[15] ITU                JPT                KHV                LWK                MSL                MXL                PEL               
+[22] PUR                PJL                STU                TSI                CEU                Jomon              IK002.maf001_Jomon
+[29] JpFu1              JpKo13             JpHi01             JpKo2              JpIw31             JpOd181            JpIw32            
+[36] JpOd274            JpIw33             JpOd282            JpKa6904           JpOd6              DA234              DA236             
+[43] DA237_E1_L1        DA238              Kolyma_River       M0831              M9984              NEO229             NEO230            
+[50] NEO231             NEO232             NEO233             NEO234             NEO235             NEO236             NEO237            
+[57] NEO238             NEO239             NEO240             NEO241             NEO242             NEO243             NEO246            
+[64] NEO247             NEO248             NEO249             NEO250             NEO251             NEO253             NEO298            
+[71] NEO299             Yana_old           Yana_old2          Yana_Young        
+74 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DA234 DA236 DA237_E1_L1 DA238 ESN FIN GBR GIH GWD IBS IK002.maf001_Jomon ITU Jomon ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"                "ACB"                "BEB"                "GBR"                "CDX"                "CLM"               
+ [7] "ESN"                "FIN"                "GWD"                "GIH"                "CHB"                "CHS"               
+[13] "IBS"                "ITU"                "JPT"                "KHV"                "LWK"                "MSL"               
+[19] "MXL"                "PEL"                "PUR"                "PJL"                "STU"                "TSI"               
+[25] "CEU"                "Jomon"              "IK002.maf001_Jomon" "JpFu1"              "JpKo13"             "JpHi01"            
+[31] "JpKo2"              "JpIw31"             "JpOd181"            "JpIw32"             "JpOd274"            "JpIw33"            
+[37] "JpOd282"            "JpKa6904"           "JpOd6"              "DA234"              "DA236"              "DA237_E1_L1"       
+[43] "DA238"              "Kolyma_River"       "M0831"              "M9984"              "NEO229"             "NEO230"            
+[49] "NEO231"             "NEO232"             "NEO233"             "NEO234"             "NEO235"             "NEO236"            
+[55] "NEO237"             "NEO238"             "NEO239"             "NEO240"             "NEO241"             "NEO242"            
+[61] "NEO243"             "NEO246"             "NEO247"             "NEO248"             "NEO249"             "NEO250"            
+[67] "NEO251"             "NEO253"             "NEO298"             "NEO299"             "Yana_old"           "Yana_old2"         
+[73] "Yana_Young"        
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis_chagyrskaya.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083743 57.9    1839190   98.3  1083743 57.9
+Vcells 6846063 52.3  436488553 3330.2  6846063 52.3
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083747 57.9    1839190   98.3  1083747 57.9
+Vcells 6846087 52.3  349190843 2664.2  6846087 52.3
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis2_chagyrskaya",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis2_chagyrskaya"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis2_chagyrskaya",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis2_chagyrskaya"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis2_chagyrskaya.geno has 2552 samples and 37504 SNPs
+i Calculating allele frequencies from 2552 samples in 40 populations
+! 37504 SNPs remain after filtering. 37504 are polymorphic.
+i Allele frequency matrix for 37504 SNPs and 40 populations is 15 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 1224 MB RAM without splitting
+i Computing without splitting since 1224 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis2_chagyrskaya/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1121245 59.9    1839190   98.3  1121245 59.9
+Vcells 7239264 55.3  178785712 1364.1  7239264 55.3
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083749 57.9    1839190   98.3  1083749 57.9
+Vcells 6846085 52.3  143028570 1091.3  6846085 52.3
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 40 populations...
+i Reading f2 data for pair 820 out of 820...
+Warning message:
+In f2_from_precomp(my_f2_dir) :
+  Some f2-statistic estimates are negative across blocks. This is probably caused by too many missing or rare SNPs in populations with low sample size, which makes the f2 bias correction unreliable. Consider running 'f2_from_precomp' with 'afprod = TRUE'.
+> dim(f2_blocks)
+[1]  40  40 817
+> (lista <- read.table(sprintf("%s\\lista2_yanajomon.txt",ldir))$V1)
+ [1] YRI           ASW           ACB           BEB           GBR           CDX           CLM           ESN           FIN          
+[10] GWD           GIH           CHB           CHS           IBS           ITU           JPT           KHV           LWK          
+[19] MSL           MXL           PEL           PUR           PJL           STU           TSI           CEU           Jomon        
+[28] Kofun         Saami_IA      Finnish_IA    Kolyma_M      Magadan_BA    UstBelaya_N   UstBelaya_EBA Uelen_IA      DevilsCave_N 
+[37] Ekven_IA      UstBelaya_MED Yana_UP       Yana_MED     
+40 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DevilsCave_N Ekven_IA ESN FIN Finnish_IA GBR GIH GWD IBS ITU Jomon JPT KHV Kofun ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"           "ACB"           "BEB"           "GBR"           "CDX"           "CLM"           "ESN"           "FIN"          
+ [9] "GWD"           "GIH"           "CHB"           "CHS"           "IBS"           "ITU"           "JPT"           "KHV"          
+[17] "LWK"           "MSL"           "MXL"           "PEL"           "PUR"           "PJL"           "STU"           "TSI"          
+[25] "CEU"           "Jomon"         "Kofun"         "Saami_IA"      "Finnish_IA"    "Kolyma_M"      "Magadan_BA"    "UstBelaya_N"  
+[33] "UstBelaya_EBA" "Uelen_IA"      "DevilsCave_N"  "Ekven_IA"      "UstBelaya_MED" "Yana_UP"       "Yana_MED"     
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis2_chagyrskaya.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1084094 57.9    1839190  98.3  1084094 57.9
+Vcells 3679629 28.1  114422856 873.0  3679629 28.1
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083717 57.9    1839190  98.3  1083717 57.9
+Vcells 3679018 28.1   91538285 698.4  3679018 28.1
+> 
+> #denisova#####
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis_denisova",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis_denisova"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis_denisova",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_denisova"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis_denisova.geno has 2552 samples and 17227 SNPs
+i Calculating allele frequencies from 2552 samples in 74 populations
+! 17227 SNPs remain after filtering. 17227 are polymorphic.
+i Allele frequency matrix for 17227 SNPs and 74 populations is 12 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 1734 MB RAM without splitting
+i Computing without splitting since 1734 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis_denisova/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1100927 58.8    1839190   98.3  1100927 58.8
+Vcells 3859543 29.5  292542609 2232.0  3859543 29.5
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083719 57.9    1839190   98.3  1083719 57.9
+Vcells 3679016 28.1  234034088 1785.6  3679016 28.1
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 74 populations...
+i Reading f2 data for pair 2775 out of 2775...
+> dim(f2_blocks)
+[1]  74  74 836
+> (lista <- read.table(sprintf("%s\\lista_yanajomon.txt",ldir))$V1)
+ [1] YRI                ASW                ACB                BEB                GBR                CDX                CLM               
+ [8] ESN                FIN                GWD                GIH                CHB                CHS                IBS               
+[15] ITU                JPT                KHV                LWK                MSL                MXL                PEL               
+[22] PUR                PJL                STU                TSI                CEU                Jomon              IK002.maf001_Jomon
+[29] JpFu1              JpKo13             JpHi01             JpKo2              JpIw31             JpOd181            JpIw32            
+[36] JpOd274            JpIw33             JpOd282            JpKa6904           JpOd6              DA234              DA236             
+[43] DA237_E1_L1        DA238              Kolyma_River       M0831              M9984              NEO229             NEO230            
+[50] NEO231             NEO232             NEO233             NEO234             NEO235             NEO236             NEO237            
+[57] NEO238             NEO239             NEO240             NEO241             NEO242             NEO243             NEO246            
+[64] NEO247             NEO248             NEO249             NEO250             NEO251             NEO253             NEO298            
+[71] NEO299             Yana_old           Yana_old2          Yana_Young        
+74 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DA234 DA236 DA237_E1_L1 DA238 ESN FIN GBR GIH GWD IBS IK002.maf001_Jomon ITU Jomon ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"                "ACB"                "BEB"                "GBR"                "CDX"                "CLM"               
+ [7] "ESN"                "FIN"                "GWD"                "GIH"                "CHB"                "CHS"               
+[13] "IBS"                "ITU"                "JPT"                "KHV"                "LWK"                "MSL"               
+[19] "MXL"                "PEL"                "PUR"                "PJL"                "STU"                "TSI"               
+[25] "CEU"                "Jomon"              "IK002.maf001_Jomon" "JpFu1"              "JpKo13"             "JpHi01"            
+[31] "JpKo2"              "JpIw31"             "JpOd181"            "JpIw32"             "JpOd274"            "JpIw33"            
+[37] "JpOd282"            "JpKa6904"           "JpOd6"              "DA234"              "DA236"              "DA237_E1_L1"       
+[43] "DA238"              "Kolyma_River"       "M0831"              "M9984"              "NEO229"             "NEO230"            
+[49] "NEO231"             "NEO232"             "NEO233"             "NEO234"             "NEO235"             "NEO236"            
+[55] "NEO237"             "NEO238"             "NEO239"             "NEO240"             "NEO241"             "NEO242"            
+[61] "NEO243"             "NEO246"             "NEO247"             "NEO248"             "NEO249"             "NEO250"            
+[67] "NEO251"             "NEO253"             "NEO298"             "NEO299"             "Yana_old"           "Yana_old2"         
+[73] "Yana_Young"        
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis_denisova.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083677 57.9    1839190   98.3  1083677 57.9
+Vcells 6950064 53.1  187227271 1428.5  6950064 53.1
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083681 57.9    1839190   98.3  1083681 57.9
+Vcells 6950088 53.1  149781817 1142.8  6950088 53.1
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis2_denisova",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis2_denisova"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis2_denisova",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis2_denisova"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis2_denisova.geno has 2552 samples and 17227 SNPs
+i Calculating allele frequencies from 2552 samples in 40 populations
+! 17227 SNPs remain after filtering. 17227 are polymorphic.
+i Allele frequency matrix for 17227 SNPs and 40 populations is 7 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 562 MB RAM without splitting
+i Computing without splitting since 562 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis2_denisova/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1100893 58.8    1839190  98.3  1100893 58.8
+Vcells 7130627 54.5  110521251 843.3  7130627 54.5
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083685 57.9    1839190  98.3  1083685 57.9
+Vcells 6950100 53.1   88417001 674.6  6950100 53.1
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 40 populations...
+i Reading f2 data for pair 820 out of 820...
+> dim(f2_blocks)
+[1]  40  40 836
+> (lista <- read.table(sprintf("%s\\lista2_yanajomon.txt",ldir))$V1)
+ [1] YRI           ASW           ACB           BEB           GBR           CDX           CLM           ESN           FIN          
+[10] GWD           GIH           CHB           CHS           IBS           ITU           JPT           KHV           LWK          
+[19] MSL           MXL           PEL           PUR           PJL           STU           TSI           CEU           Jomon        
+[28] Kofun         Saami_IA      Finnish_IA    Kolyma_M      Magadan_BA    UstBelaya_N   UstBelaya_EBA Uelen_IA      DevilsCave_N 
+[37] Ekven_IA      UstBelaya_MED Yana_UP       Yana_MED     
+40 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DevilsCave_N Ekven_IA ESN FIN Finnish_IA GBR GIH GWD IBS ITU Jomon JPT KHV Kofun ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"           "ACB"           "BEB"           "GBR"           "CDX"           "CLM"           "ESN"           "FIN"          
+ [9] "GWD"           "GIH"           "CHB"           "CHS"           "IBS"           "ITU"           "JPT"           "KHV"          
+[17] "LWK"           "MSL"           "MXL"           "PEL"           "PUR"           "PJL"           "STU"           "TSI"          
+[25] "CEU"           "Jomon"         "Kofun"         "Saami_IA"      "Finnish_IA"    "Kolyma_M"      "Magadan_BA"    "UstBelaya_N"  
+[33] "UstBelaya_EBA" "Uelen_IA"      "DevilsCave_N"  "Ekven_IA"      "UstBelaya_MED" "Yana_UP"       "Yana_MED"     
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis2_denisova.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1084028 57.9    1839190  98.3  1084028 57.9
+Vcells 3709986 28.4   70733601 539.7  3709986 28.4
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083651 57.9    1839190  98.3  1083651 57.9
+Vcells 3709375 28.4   56586881 431.8  3709375 28.4
+> 
+> #vindija#####
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis_vindija",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis_vindija"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis_vindija",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_vindija"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis_vindija.geno has 2552 samples and 38764 SNPs
+i Calculating allele frequencies from 2552 samples in 74 populations
+! 38764 SNPs remain after filtering. 38764 are polymorphic.
+i Allele frequency matrix for 38764 SNPs and 74 populations is 26 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 3901 MB RAM without splitting
+i Computing without splitting since 3901 < 8000 (maxmem)...
+Error: cannot allocate vector of size 1.6 Gb
+In addition: Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083666 57.9    1839190   98.3  1083666 57.9
+Vcells 3709462 28.4  764137995 5830.0  3709462 28.4
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083673 57.9    1839190   98.3  1083673 57.9
+Vcells 3709491 28.4  611310396 4664.0  3709491 28.4
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+Error in f2_from_precomp(my_f2_dir) : 
+  Directory G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis_vindija doesn't exist!
+> dim(f2_blocks)
+[1]  40  40 836
+> (lista <- read.table(sprintf("%s\\lista_yanajomon.txt",ldir))$V1)
+ [1] YRI                ASW                ACB                BEB                GBR                CDX                CLM               
+ [8] ESN                FIN                GWD                GIH                CHB                CHS                IBS               
+[15] ITU                JPT                KHV                LWK                MSL                MXL                PEL               
+[22] PUR                PJL                STU                TSI                CEU                Jomon              IK002.maf001_Jomon
+[29] JpFu1              JpKo13             JpHi01             JpKo2              JpIw31             JpOd181            JpIw32            
+[36] JpOd274            JpIw33             JpOd282            JpKa6904           JpOd6              DA234              DA236             
+[43] DA237_E1_L1        DA238              Kolyma_River       M0831              M9984              NEO229             NEO230            
+[50] NEO231             NEO232             NEO233             NEO234             NEO235             NEO236             NEO237            
+[57] NEO238             NEO239             NEO240             NEO241             NEO242             NEO243             NEO246            
+[64] NEO247             NEO248             NEO249             NEO250             NEO251             NEO253             NEO298            
+[71] NEO299             Yana_old           Yana_old2          Yana_Young        
+74 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DA234 DA236 DA237_E1_L1 DA238 ESN FIN GBR GIH GWD IBS IK002.maf001_Jomon ITU Jomon ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"                "ACB"                "BEB"                "GBR"                "CDX"                "CLM"               
+ [7] "ESN"                "FIN"                "GWD"                "GIH"                "CHB"                "CHS"               
+[13] "IBS"                "ITU"                "JPT"                "KHV"                "LWK"                "MSL"               
+[19] "MXL"                "PEL"                "PUR"                "PJL"                "STU"                "TSI"               
+[25] "CEU"                "Jomon"              "IK002.maf001_Jomon" "JpFu1"              "JpKo13"             "JpHi01"            
+[31] "JpKo2"              "JpIw31"             "JpOd181"            "JpIw32"             "JpOd274"            "JpIw33"            
+[37] "JpOd282"            "JpKa6904"           "JpOd6"              "DA234"              "DA236"              "DA237_E1_L1"       
+[43] "DA238"              "Kolyma_River"       "M0831"              "M9984"              "NEO229"             "NEO230"            
+[49] "NEO231"             "NEO232"             "NEO233"             "NEO234"             "NEO235"             "NEO236"            
+[55] "NEO237"             "NEO238"             "NEO239"             "NEO240"             "NEO241"             "NEO242"            
+[61] "NEO243"             "NEO246"             "NEO247"             "NEO248"             "NEO249"             "NEO250"            
+[67] "NEO251"             "NEO253"             "NEO298"             "NEO299"             "Yana_old"           "Yana_old2"         
+[73] "Yana_Young"        
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+Error in get_f2(data, pops, verbose = verbose, ...) : 
+  Requested, but not in f2_data: IK002.maf001_Jomon, JpFu1, JpKo13, JpHi01, JpKo2, JpIw31, JpOd181, JpIw32, JpOd274, JpIw33, JpOd282, JpKa6904, JpOd6, DA234, DA236, DA237_E1_L1, DA238, Kolyma_River, M0831, M9984, NEO229, NEO230, NEO231, NEO232, NEO233, NEO234, NEO235, NEO236, NEO237, NEO238, NEO239, NEO240, NEO241, NEO242, NEO243, NEO246, NEO247, NEO248, NEO249, NEO250, NEO251, NEO253, NEO298, NEO299, Yana_old, Yana_old2, Yana_Young
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis_vindija.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083719 57.9    1839190   98.3  1083719 57.9
+Vcells 3709561 28.4  489048317 3731.2  3709561 28.4
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1083720 57.9    1839190   98.3  1083720 57.9
+Vcells 3709580 28.4  391238654 2985.0  3709580 28.4
+> 
+> (prefix = sprintf("%s\\yana_j_f3_analysis2_vindija",sdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis2_vindija"
+> (my_f2_dir = sprintf("%s\\yana_j_f3_analysis2_vindija",rdir))
+[1] "G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis2_vindija"
+> extract_f2(prefix, my_f2_dir)
+i Reading allele frequencies from EIGENSTRAT files...
+i yana_j_f3_analysis2_vindija.geno has 2552 samples and 38764 SNPs
+i Calculating allele frequencies from 2552 samples in 40 populations
+! 38764 SNPs remain after filtering. 38764 are polymorphic.
+i Allele frequency matrix for 38764 SNPs and 40 populations is 16 MB
+i Computing pairwise f2 for all SNPs and population pairs requires 1265 MB RAM without splitting
+i Computing without splitting since 1265 < 8000 (maxmem)...
+i Data written to G:\hmiwa\m_20211215\07_yana_saami3\git\analysis_yanarhsf3\localRfstats\results\yana_j_f3_analysis2_vindija/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> 
+> gc(reset=T)
+          used (Mb) gc trigger   (Mb) max used (Mb)
+Ncells 1122481 60.0    1839190   98.3  1122481 60.0
+Vcells 4116061 31.5  160676478 1225.9  4116061 31.5
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083724 57.9    1839190  98.3  1083724 57.9
+Vcells 3709592 28.4  128541183 980.7  3709592 28.4
+> 
+> f2_blocks = f2_from_precomp(my_f2_dir)
+i Reading precomputed data for 40 populations...
+i Reading f2 data for pair 820 out of 820...
+Warning message:
+In f2_from_precomp(my_f2_dir) :
+  Some f2-statistic estimates are negative across blocks. This is probably caused by too many missing or rare SNPs in populations with low sample size, which makes the f2 bias correction unreliable. Consider running 'f2_from_precomp' with 'afprod = TRUE'.
+> dim(f2_blocks)
+[1]  40  40 824
+> (lista <- read.table(sprintf("%s\\lista2_yanajomon.txt",ldir))$V1)
+ [1] YRI           ASW           ACB           BEB           GBR           CDX           CLM           ESN           FIN          
+[10] GWD           GIH           CHB           CHS           IBS           ITU           JPT           KHV           LWK          
+[19] MSL           MXL           PEL           PUR           PJL           STU           TSI           CEU           Jomon        
+[28] Kofun         Saami_IA      Finnish_IA    Kolyma_M      Magadan_BA    UstBelaya_N   UstBelaya_EBA Uelen_IA      DevilsCave_N 
+[37] Ekven_IA      UstBelaya_MED Yana_UP       Yana_MED     
+40 Levels: ACB ASW BEB CDX CEU CHB CHS CLM DevilsCave_N Ekven_IA ESN FIN Finnish_IA GBR GIH GWD IBS ITU Jomon JPT KHV Kofun ... YRI
+> (pop1 = as.character(lista[1]))
+[1] "YRI"
+> (pop2 = as.character(lista[9]))
+[1] "FIN"
+> (pop3 = as.character(lista[-1]))
+ [1] "ASW"           "ACB"           "BEB"           "GBR"           "CDX"           "CLM"           "ESN"           "FIN"          
+ [9] "GWD"           "GIH"           "CHB"           "CHS"           "IBS"           "ITU"           "JPT"           "KHV"          
+[17] "LWK"           "MSL"           "MXL"           "PEL"           "PUR"           "PJL"           "STU"           "TSI"          
+[25] "CEU"           "Jomon"         "Kofun"         "Saami_IA"      "Finnish_IA"    "Kolyma_M"      "Magadan_BA"    "UstBelaya_N"  
+[33] "UstBelaya_EBA" "Uelen_IA"      "DevilsCave_N"  "Ekven_IA"      "UstBelaya_MED" "Yana_UP"       "Yana_MED"     
+> dat.f3=f3(f2_blocks,pop1,pop2,pop3)
+> write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis2_vindija.f3_FIN.txt",rdir),quote=F,row.names=F)
+> 
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1084138 57.9    1839190  98.3  1084138 57.9
+Vcells 3690946 28.2  102832947 784.6  3690946 28.2
+> gc(reset=T)
+          used (Mb) gc trigger  (Mb) max used (Mb)
+Ncells 1083761 57.9    1839190  98.3  1083761 57.9
+Vcells 3690335 28.2   82266358 627.7  3690335 28.2
+> 

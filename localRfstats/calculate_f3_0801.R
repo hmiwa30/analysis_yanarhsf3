@@ -181,8 +181,6 @@ gc(reset=T)
 gc(reset=T)
 
 
-
-
 #test and example #########
 
 

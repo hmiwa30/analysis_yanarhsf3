@@ -18,8 +18,14 @@ rdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfsta
 ldir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3"
 
 df=read.table(sprintf("%s\\yana_j_f3_analysis.ind",sdir))
-(lista <- read.table(sprintf("%s\\lista_yanajomon.txt",ldir))$V1)
-levels(df$V3)
+(lista <- read.table(sprintf("%s\\lista3_yanajomon.txt",ldir))$V1)
+#levels(df$V3)
+df$V3=factor(df$V3,level=lista)
+df=na.omit(df)
+write.table(df,sprintf("%s\\yana_j_f3_analysis3_altai.ind",sdir),quote=F,col.names=F,row.names=F)
+write.table(df,sprintf("%s\\yana_j_f3_analysis3_chagyrskaya.ind",sdir),quote=F,col.names=F,row.names=F)
+write.table(df,sprintf("%s\\yana_j_f3_analysis3_vindija.ind",sdir),quote=F,col.names=F,row.names=F)
+write.table(df,sprintf("%s\\yana_j_f3_analysis3_denisova.ind",sdir),quote=F,col.names=F,row.names=F)
 
 ########################################################## delete 1KG ver. calculate again ######
 #altai#####

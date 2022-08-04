@@ -1,4 +1,5 @@
 YRI
+FIN
 GBR
 CDX
 CHB

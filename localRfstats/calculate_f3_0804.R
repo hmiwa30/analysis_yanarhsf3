@@ -13,6 +13,9 @@
 #install.packages("jquerylib")
 library(admixtools)
 
+gc(reset=T)
+gc(reset=T)
+
 sdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources"
 rdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results"
 ldir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3"
@@ -26,6 +29,9 @@ write.table(df,sprintf("%s\\yana_j_f3_analysis3_altai.ind",sdir),quote=F,col.nam
 write.table(df,sprintf("%s\\yana_j_f3_analysis3_chagyrskaya.ind",sdir),quote=F,col.names=F,row.names=F)
 write.table(df,sprintf("%s\\yana_j_f3_analysis3_vindija.ind",sdir),quote=F,col.names=F,row.names=F)
 write.table(df,sprintf("%s\\yana_j_f3_analysis3_denisova.ind",sdir),quote=F,col.names=F,row.names=F)
+
+gc(reset=T)
+gc(reset=T)
 
 ########################################################## delete 1KG ver. calculate again ######
 #altai#####
@@ -111,13 +117,3 @@ write.table(dat.f3,sprintf("%s\\yana_j_f3_analysis3_vindija.f3_FIN.txt",rdir),qu
 
 gc(reset=T)
 gc(reset=T)
-
-
-
-
-
-
-
-
-
-

@@ -20,7 +20,7 @@ sdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfsta
 rdir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results"
 ldir="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3"
 
-df=read.table(sprintf("%s\\yanarhs_f3_analysis.ind",sdir))
+df=read.table(sprintf("%s\\yanarhs_f3_analysis2.ind",sdir))
 (lista <- read.table(sprintf("%s\\lista4_yana.txt",ldir))$V1)
 #levels(df$V3)
 df$V3=factor(df$V3,level=lista)

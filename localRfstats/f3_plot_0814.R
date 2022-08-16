@@ -1,8 +1,8 @@
-display.brewer.all()
-display.brewer.pal(8,"Dark2")
-display.brewer.pal(12,"Set3")
-display.brewer.pal(8,"Set3")
-display.brewer.pal(5,"Spectral")
+#display.brewer.all()
+#display.brewer.pal(8,"Dark2")
+#display.brewer.pal(12,"Set3")
+#display.brewer.pal(8,"Set3")
+#display.brewer.pal(5,"Spectral")
 
 print(Sys.time())
       

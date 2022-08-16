@@ -5,14 +5,14 @@
 #display.brewer.pal(5,"Spectral")
 
 print(Sys.time())
-      
-"yanarhs_f3_analysis"
+
+"yana_j_f3_analysis"
 "where fstats txt is"
-(ft_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yanarhs_f3_analysis_0814")
+(ft_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_0814")
 "where picture will be saved"
-(pn_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\picture\\yanarhs_f3_analysis_0814")
+(pn_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\picture\\yana_j_f3_analysis_0814")
 "where .ind file is"
-(in_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yanarhs_f3_analysis")
+(in_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis")
 
 for(i in c(3,4)){
   for(ah in c("altai","chagyrskaya","denisova","vindija")){
@@ -52,7 +52,7 @@ for(i in c(3,4)){
       addpop <- unique(addpop)
       picpop <- rbind(phase3,addpop)
     }
-
+    
     resultf3.dat <- merge(resultf3.dat,picpop,by.x="sample",by.y="V1",all.x=T,all.y=F)
     colnames(resultf3.dat)[4] <- "pop"
     resultf3.dat <- resultf3.dat[order(resultf3.dat$pop),]
@@ -83,4 +83,5 @@ for(i in c(3,4)){
     plot(g)
     dev.off()
   }
+  
 }

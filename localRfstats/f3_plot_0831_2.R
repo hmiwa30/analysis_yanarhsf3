@@ -8,13 +8,13 @@
 
 print(Sys.time())
 
-"yana_j_f3_analysis"
+"yanarhs_f3_analysis"
 "where fstats txt is"
-(ft_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yana_j_f3_analysis_0814")
+(ft_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\yanarhs_f3_analysis_0814")
 "where picture will be saved"
-(pn_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\picture\\yana_j_f3_analysis_0814")
+(pn_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\results\\picture\\yanarhs_f3_analysis_0814")
 "where .ind file is"
-(in_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yana_j_f3_analysis")
+(in_fix="G:\\hmiwa\\m_20211215\\07_yana_saami3\\git\\analysis_yanarhsf3\\localRfstats\\sources\\yanarhs_f3_analysis")
 
 for(i in c(3,4)){
   for(ah in c("altai","chagyrskaya","denisova","vindija")){
